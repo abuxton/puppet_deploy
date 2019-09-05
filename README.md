@@ -1,79 +1,45 @@
 
 # puppet_deploy
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
+This module is presented as a wrapper module for deploying puppet enterprise and various tools, it utilises a Puppet Bolt methodology of Task and Plans to enable deployment of Puppet and related products.
 
-The README template below provides a starting point with details about what information to include in your README.
 
 #### Table of Contents
 
-1. [Description](#description)
-2. [Setup - The basics of getting started with puppet_deploy](#setup)
-    * [What puppet_deploy affects](#what-puppet_deploy-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with puppet_deploy](#beginning-with-puppet_deploy)
-3. [Usage - Configuration options and additional functionality](#usage)
-4. [Limitations - OS compatibility, etc.](#limitations)
-5. [Development - Guide for contributing to the module](#development)
+- [puppet_deploy](#puppetdeploy)
+      - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Setup](#setup)
+    - [Setup Requirements **OPTIONAL**](#setup-requirements-optional)
+    - [Beginning with puppet_deploy](#beginning-with-puppetdeploy)
+  - [Usage](#usage)
+  - [Limitations](#limitations)
+  - [Development](#development)
+    - [ToDO](#todo)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
+Deploy Puppet Open Source, Puppet Enterprise, Puppet agents, and other related products from one project.
+Supported by spec tests and expande dto support Litmus execution. 
 
 ## Setup
 
-### What puppet_deploy affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
+* Puppet Bolt installed (their is always a Chicken where there is an egg)
+* You may want the PDK to validate the module
+* You will probably want bundler installed to extend the workflow. 
 
 ### Beginning with puppet_deploy
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+* invoke `bolt puppetfile install`
+* invoke `bolt task show` or `bolt task show --modulepath=./modules/` (bolt.yaml is configured with a standard module path)
+* invoke `bolt plan show` or `bolt plan show --modulepath=./modules/` (bolt.yaml is configured with a standard module path)
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+Follow the bolt documentation for `bolt task` and or `bolt plan`
 
-## Reference
-
-This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
-
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-For example:
-
-```
-### `pet::cat`
-
-#### Parameters
-
-##### `meow`
-
-Enables vocalization in your cat. Valid options: 'string'.
-
-Default: 'medium-loud'.
-```
 
 ## Limitations
 
@@ -81,8 +47,8 @@ In the Limitations section, list any incompatibilities, known issues, or other w
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
+If you find, create or help with a project you consider may be useful for this collection feel free to create a pull request. 
+if you want to add tasks, plans directly consider writing spec tests for the plans that can be executed with Litmus.
 
-## Release Notes/Contributors/Etc. **Optional**
+### ToDO
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
