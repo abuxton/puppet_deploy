@@ -1,0 +1,23 @@
+groups:
+  - name: puppet_infrastructure  
+      nodes:
+      config:
+        transport: ssh
+  - name: remediate  
+      nodes:
+      config:
+        transport: ssh
+  - name: compilers  
+      nodes:
+      config:
+        transport: ssh
+    config:
+      transport: ssh
+  - name: bastion 
+      nodes:
+      config:
+        transport: ssh
+      ssh:
+        #user: 
+        #password: 
+        no-host-key-check: true

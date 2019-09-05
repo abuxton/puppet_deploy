@@ -24,4 +24,7 @@
 .DS_Store
 .project
 .envrc
-/inventory.yaml
+#bolt files
+modules/
+.rerun.json
+#/inventory.yaml
